@@ -1,0 +1,120 @@
+﻿@model CustomerChartered.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceDetailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceDetailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeframeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeframeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinuteTook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinuteTook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Evaluate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Evaluate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

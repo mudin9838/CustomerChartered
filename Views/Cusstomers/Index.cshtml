@@ -1,0 +1,36 @@
+﻿@{
+
+    var DropDownList = new Syncfusion.EJ2.DropDowns.DropDownList() { DataSource = ViewBag.ParentId, Query = "new ej.data.Query()", Fields = new Syncfusion.EJ2.DropDowns.DropDownListFieldSettings() { Value = "ParentId", Text = "ParentId" } };
+
+}
+@Html.EJS().Grid("UrlAdaptor").DataSource(ds => ds.Url(@Url.Action("UrlDatasource", "Cusstomers")).InsertUrl(@Url.Action("Insert", "Cusstomers")).UpdateUrl(@Url.Action("Update", "Cusstomers")).RemoveUrl(@Url.Action("Delete", "Cusstomers")).Adaptor("UrlAdaptor")).AllowSorting().AllowResizing().AllowReordering().AllowGrouping().AllowFiltering().EditSettings(edit => { edit.AllowAdding(true).AllowEditing(true).AllowDeleting(true).Mode(Syncfusion.EJ2.Grids.EditMode.Dialog); }).AllowExcelExport().AllowPdfExport().Columns(col =>
+{
+    col.Type("checkbox").Width("50").Add();
+    col.Field("CustomerId").IsPrimaryKey(true).HeaderText("CustomerId").Add();
+    col.Field("ParentId").HeaderText("ParentId").Width("150").EditType("dropdownedit").Edit(new { @params = DropDownList }).Add();
+    col.Field("ChildId").HeaderText("ChildId").EditType("dropdownedit").Add();
+    col.Field("DepartmentId").HeaderText("DepartmentId").EditType("dropdownedit").Add();
+    col.Field("OrderDate").HeaderText("OrderDate").Add();
+    col.Field("ServiceId").HeaderText("ServiceId").Add();
+    col.Field("ServiceDetailId").HeaderText("ServiceDetailId").Add();
+    col.Field("TimeframeId").HeaderText("TimeframeId").EditType("dropdownedit").Add();
+    col.Field("TinNumber").HeaderText("TinNumber").Add();
+    col.Field("StartTime").HeaderText("StartTime").Add();
+    col.Field("EndTime").HeaderText("EndTime").Add();
+    col.Field("MinuteTook").HeaderText("MinuteTook").Add();
+    col.Field("Evaluate").HeaderText("Evaluate").Add();
+ }).AllowPaging().Toolbar(new List<string>() { "Search", "Add", "Edit", "Delete", "Update", "Cancel", "ExcelExport", "CsvExport", "PdfExport" }).FilterSettings(filter => { filter.Type(Syncfusion.EJ2.Grids.FilterType.Menu); }).AllowSelection().SelectionSettings(select => select.Type(Syncfusion.EJ2.Grids.SelectionType.Single)).ToolbarClick("toolbarclick").Render()
+
+<script>
+    function toolbarclick(args) {
+        if (args.item.id === this.element.id + '_pdfexport') {
+            this.pdfExport();
+        }
+        if (args.item.id === this.element.id + '_csvexport') {
+            this.csvExport();
+        }
+        if (args.item.id === this.element.id + '_excelexport') {
+            this.excelExport();
+        }
+    }
+</script>
